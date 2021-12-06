@@ -4,21 +4,32 @@
   connection: local
   gather_facts: False
   vars:
-    keypair: bright
+    keypair: Matillion-QA
     instance_type: t2.micro
-    image: ami-0c322300a1dd5dc79
+    image: ami-0b0af3577fe5e3532
     region: us-east-1
+    count: 2
+    security_group: sg-5fb1b417
 
   tasks:
     - name: Launch instance
       ec2:
+         name: sample
          key_name: "{{ keypair }}"
-         group: default
-         instance_type: t2.micro
+         group: "{{ security_goup }}"
+         instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          region: "{{ region }}"
-         vpc_subnet_id: subnet-4b6f2d2c
+         vpc_subnet_id: subnet-094ee6f242e356423
          assign_public_ip: yes
          wait: true
+         volumes:
+           - device_name: /dev/sda
+             volume_type: gp2
+             volume_size: 10
+         count_tag:
+           Name: test
+         instance_tag:
+           Name: test
          
 
