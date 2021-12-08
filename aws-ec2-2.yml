@@ -27,9 +27,7 @@
            - device_name: /dev/sda
              volume_type: gp2
              volume_size: 10
-         count_tag:
-           Name: test
-         instance_tag:
-           Name: test
+         count: "{{ count }}"
+           
          
 
