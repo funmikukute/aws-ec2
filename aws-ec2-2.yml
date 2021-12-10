@@ -12,6 +12,10 @@
      #groups: test
 
   tasks:
+    - name: Install boto
+      pip: 
+        name: boto
+
     - name: Launch instance
       ec2:
          key_name: "{{ keypair }}"
