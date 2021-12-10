@@ -27,7 +27,7 @@
            volume_type: gp2
            volume_size: 15
          count: "{{ count }}"
-         instance__tags:
+         instance_tags:
            name: sample
            
          
