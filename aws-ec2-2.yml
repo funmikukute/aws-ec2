@@ -14,9 +14,8 @@
   tasks:
     - name: Launch instance
       ec2:
-         name: sample_server
          key_name: "{{ keypair }}"
-         group: default 
+         group_id: sg-5fb1b417
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          region: "{{ region }}"
@@ -28,6 +27,8 @@
            volume_type: gp2
            volume_size: 15
          count: "{{ count }}"
+         instance__tags:
+           name: sample
            
          
 
