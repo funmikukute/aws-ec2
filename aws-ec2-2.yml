@@ -14,7 +14,7 @@
   tasks:
     - name: Launch instance
       ec2:
-         name: sample
+         name: sample_server
          key_name: "{{ keypair }}"
          security_groups: sg-5fb1b417
          instance_type: "{{ instance_type }}"
